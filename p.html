@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>practica</title>
+	<style>
+		.cuaa{
+			position: absolute;
+			top: 150px;
+			left: 450px;
+			height:150px;
+			width: 400px;
+			background: #C7B0FF;
+			border-radius: 30px;
+			font-family: 'Gluten', cursive;
+			padding-left: 50px;
+			font-size: 30px;
+		}
+		.bt{
+			position: absolute;
+			top: 350px;
+			left: 780px;
+			height: 50px;
+			width: 100px; 
+			border-radius: 10px;
+			background: #B5FFB0;
+			font-family: 'Gluten', cursive;
+			font-size: 20px;
+		}
+		.re{
+			position: absolute;
+			top: 350px;
+			left: 460px;
+			height: 50px;
+			width: 90px;
+			background: #B5FFB0;
+			border-radius: 10px;
+		}
+		.ti{
+			position: absolute;
+			top: 500px;
+			left: 680px;
+			height: 90px;
+			width: 220px;
+			background: #C7B0FF;
+			font-family: 'Gluten', cursive;
+		    font-size: 30px;
+		    border-radius: 10px;
+		}
+		.sco{
+			position: absolute;
+			top: 500px;
+			left: 450px;
+			height: 90px;
+			width: 210px;
+			background: #C7B0FF;
+			font-family: 'Gluten', cursive;
+		    font-size: 30px;
+		    border-radius: 10px;
+		}
+		.b1{
+			top: 400px;
+			position: absolute;
+			height: 50px;
+			width: 80px;
+			background: #B5FFB0;
+			left: 400px;
+		}
+		.g{
+			top: 350px;
+			position: absolute;
+			height: 40px;
+			width: 80px;
+			background: #C7B0FF;
+			left: 630px;
+			border: solid 1px;
+			padding-top: 10px;
+			border-radius: 10px;
+			font-family: 'Gluten', cursive;
+		    font-size: 15px;
+		    border-radius: 10px;
+		}
+		.tit{
+		position: absolute;
+		top: 50px;
+		font-family: 'Gluten', cursive;
+		font-size: 60px;
+		color: #8143A3;
+		-webkit-text-stroke: 1.5px black; 
+		left: 530px;
+		height: 80px;
+		width: 240px;
+		}
+		.tc{
+		position: absolute;
+		top: 150px;
+		font-family: 'Gluten', cursive;
+		font-size: 35px;
+		color: #8143A3;
+		-webkit-text-stroke: 1.5px black; 
+		left: 100px;
+		height: 80px;
+		width: 240px;
+		}
+	.comentario{
+		position: absolute;
+		top: 200px;
+		font-family: 'Gluten', cursive;
+		font-size: 20px;
+		left: 100px;
+		height: 400px;
+		background: #B5FFB0;
+		text-align: justify;
+		width: 240px;
+	}
+	</style>
+</head>
+ <body style="background-color:#FFFED8;">
+<body>
+<div class="tit">PRÁCTICA</div>
+<div class="tc">COMENTARIO</div>
+<div class="cuaa" id="re">
+</div>
+<div class="bt" id="b" onclick="ale()">CAMBIAR</div>
+<div class="g" id="gu" onclick="guardar()">GUARDAR</div>
+<input id="r" class="re" placeholder="Resultado">
+<div class="comentario">No me pareció sencillo para ser sincera, quería limitar más el juego, haciéndolo empezar cuando el usuario deseaba y que cuando terminara no se modificara nada más, pero cada que lo intentaba aparecía un enredo más, me esforcé para hacerlo lo cual me parece suficiente y aún así  me quedó bien.</div>
+<div class="ti" id="time">TIME</div>
+<div class="sco" id="s">SCORE</div>
+<script>
+	x=60;
+	a=0;
+	sum=0;
+	res=0;
+	pun=0;
+	pune=0;
+	function cronom(){
+		x=x-1;
+			time.innerHTML=x;
+			if(x==0){
+				clearInterval(cronoo);
+				
+				re.innerHTML="Se te acabo el tiempo";
+			}
+		}
+	
+				cronoo=setInterval(cronom,1000);
+	
+
+	function ale(){
+		var numx=Math.floor((Math.random() * (20-1))+1);
+		var numy=Math.floor((Math.random() * (40-1))+1);
+		re.innerHTML=numx+" "+numy;
+
+		if(numx>1&&numx<10&&numy>1&&numy<10){
+			re.innerHTML=numx+" "+numy+"<br>"+"¿Cual es la suma?";
+			rt=numx+numy;
+		}
+		else{
+			re.innerHTML=numx+" "+numy+"<br>"+"¿Cual es la resta?";
+			rt=numx-numy;
+
+		}
+	
+
+	}
+	function guardar(){
+		res=Number(r.value);
+		console.log(res);
+		console.log(rt);
+		pun=Number(s.value);
+		if(res==rt){
+			pune=pune+10;
+			s.innerHTML=pune
+		}
+		else{
+			pune=pune-10;
+			s.innerHTML=pune;
+		}
+	}
+</script>
+</body>
+</html>
